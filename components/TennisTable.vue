@@ -80,7 +80,7 @@ export default {
       href="https://play.tennis.com.au/WestEppingParkTennisCourts/court-hire/book-by-court"
       >Book by Court</a
     >
-    <div v-if="!msg">Loading...</div>
+    <div v-if="!msg" class="test">Loading...</div>
 
     <div class="courts" v-for="resource in resourcesArray" :key="resource.Name">
       <h2>{{ resource.Name }}</h2>
@@ -109,11 +109,15 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
 .main {
   overflow: auto;
   white-space: nowrap;
   animation-duration: 2sec;
+}
+
+.test {
+  color: red;
 }
 
 table {
