@@ -116,6 +116,7 @@ export default {
   animation-duration: 2sec;
 }
 
+
 table {
   font-size: 0.75em;
   border-collapse: collapse;

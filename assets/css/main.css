@@ -1,16 +1,10 @@
-<template>
-  <div>
-    <TennisTable />
-  </div>
-</template>
-
-<style>
-#__nuxt {
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #1c110a;
+  text-align: center;
   background-color: #e9b44c;
+
+  /* COMMON CSS HERE ACROSS DIFFERENT PAGES */
 }
-</style>
