@@ -116,32 +116,31 @@ export default {
   animation-duration: 2sec;
 }
 
-
 table {
   font-size: 0.75em;
   border-collapse: collapse;
   border-radius: 4px;
-  background-color: lightgrey;
+  background-color: #e09f3e;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: inline-block;
   vertical-align: top;
 }
 
 table td {
-  border: 1px solid floralwhite;
+  border: 1px solid rgb(126, 118, 104);
   padding: 0 4px;
-  background-color: lightgrey;
+  background-color: #9e2a2b;
   user-select: none;
 }
 
 td:hover {
-  filter: brightness(95%);
+  filter: brightness(115%);
 }
 
 .recurrence {
-  background-color: rgb(208, 197, 194);
+  background-color: #9e2a2b;
 }
 .FREE {
-  background-color: #63d471;
+  background-color: #66a237;
 }
 </style>
