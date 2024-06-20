@@ -12,12 +12,19 @@ export default {
     };
   },
   mounted() {
-    const today = new Date();
-    const nextWeek = new Date();
-    nextWeek.setDate(today.getDate() + 7);
-    document.getElementById("startDate").value = today.toJSON().slice(0, 10);
-    document.getElementById("endDate").value = nextWeek.toJSON().slice(0, 10);
-    this.getData(today.toJSON().slice(0, 10), nextWeek.toJSON().slice(0, 10));
+    document.title = "🎾 | Tennis Availability";
+    if (this.$route.query.from && this.$route.query.to) {
+      this.getData(this.$route.query.from, this.$route.query.to);
+      document.getElementById("startDate").value = this.$route.query.from;
+      document.getElementById("endDate").value = this.$route.query.to;
+    } else {
+      const today = new Date();
+      const nextWeek = new Date();
+      nextWeek.setDate(today.getDate() + 7);
+      document.getElementById("startDate").value = today.toJSON().slice(0, 10);
+      document.getElementById("endDate").value = nextWeek.toJSON().slice(0, 10);
+      this.getData(today.toJSON().slice(0, 10), nextWeek.toJSON().slice(0, 10));
+    }
   },
 
   methods: {
@@ -47,6 +54,10 @@ export default {
     onSubmit(e) {
       e.preventDefault();
       this.getData(e.target.startDate.value, e.target.endDate.value);
+      this.$router.push({
+        path: "/",
+        query: { from: e.target.startDate.value, to: e.target.endDate.value },
+      });
     },
   },
 
