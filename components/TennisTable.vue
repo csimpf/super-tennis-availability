@@ -12,12 +12,19 @@ export default {
     };
   },
   mounted() {
-    const today = new Date();
-    const nextWeek = new Date();
-    nextWeek.setDate(today.getDate() + 7);
-    document.getElementById("startDate").value = today.toJSON().slice(0, 10);
-    document.getElementById("endDate").value = nextWeek.toJSON().slice(0, 10);
-    this.getData(today.toJSON().slice(0, 10), nextWeek.toJSON().slice(0, 10));
+    document.title = "🎾 | Tennis Availability";
+    if (this.$route.query.from && this.$route.query.to) {
+      this.getData(this.$route.query.from, this.$route.query.to);
+      document.getElementById("startDate").value = this.$route.query.from;
+      document.getElementById("endDate").value = this.$route.query.to;
+    } else {
+      const today = new Date();
+      const nextWeek = new Date();
+      nextWeek.setDate(today.getDate() + 7);
+      document.getElementById("startDate").value = today.toJSON().slice(0, 10);
+      document.getElementById("endDate").value = nextWeek.toJSON().slice(0, 10);
+      this.getData(today.toJSON().slice(0, 10), nextWeek.toJSON().slice(0, 10));
+    }
   },
 
   methods: {
@@ -47,6 +54,10 @@ export default {
     onSubmit(e) {
       e.preventDefault();
       this.getData(e.target.startDate.value, e.target.endDate.value);
+      this.$router.push({
+        path: "/",
+        query: { from: e.target.startDate.value, to: e.target.endDate.value },
+      });
     },
   },
 
@@ -116,32 +127,31 @@ export default {
   animation-duration: 2sec;
 }
 
-
 table {
   font-size: 0.75em;
   border-collapse: collapse;
   border-radius: 4px;
-  background-color: lightgrey;
+  background-color: #e09f3e;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: inline-block;
   vertical-align: top;
 }
 
 table td {
-  border: 1px solid floralwhite;
+  border: 1px solid rgb(126, 118, 104);
   padding: 0 4px;
-  background-color: lightgrey;
+  background-color: #9e2a2b;
   user-select: none;
 }
 
 td:hover {
-  filter: brightness(95%);
+  filter: brightness(115%);
 }
 
 .recurrence {
-  background-color: rgb(208, 197, 194);
+  background-color: #9e2a2b;
 }
 .FREE {
-  background-color: #63d471;
+  background-color: #66a237;
 }
 </style>
