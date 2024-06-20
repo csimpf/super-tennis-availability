@@ -138,9 +138,9 @@ table {
 }
 
 table td {
-  border: 1px solid rgb(126, 118, 104);
+  border: 1px solid rgb(116, 109, 97);
   padding: 0 4px;
-  background-color: #9e2a2b;
+  background-color: #9d5252;
   user-select: none;
 }
 
@@ -149,7 +149,7 @@ td:hover {
 }
 
 .recurrence {
-  background-color: #9e2a2b;
+  background-color: #9d5252;
 }
 .FREE {
   background-color: #66a237;
