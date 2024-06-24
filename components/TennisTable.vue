@@ -145,6 +145,7 @@ table td {
   padding: 0 4px;
   background-color: #9d5252;
   user-select: none;
+  vertical-align: middle;
 }
 
 td:hover {
