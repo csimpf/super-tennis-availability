@@ -4,4 +4,9 @@ import { defineNuxtConfig } from "nuxt3";
 export default defineNuxtConfig({
   components: true,
   css: [`@/assets/css/main.css`],
+  app: {
+    header: {
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    }
+  }
 });

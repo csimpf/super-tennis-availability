@@ -14,7 +14,7 @@ export default {
     };
   },
   mounted() {
-    document.title = "🎾 | Tennis Availability";
+    document.title = "Tennis Availability";
     if (this.$route.query.from && this.$route.query.to) {
       this.getData(this.$route.query.from, this.$route.query.to);
       document.getElementById("startDate").value = this.$route.query.from;
@@ -79,7 +79,7 @@ export default {
 
 <template>
   <div class="main">
-    <h1>Test Tennis Availability 🎾</h1>
+    <h1>Tennis Availability</h1>
     <form id="dateRange" @submit="onSubmit">
       <label for="startDate"> Start Date: </label>
       <input id="startDate" type="date" />
