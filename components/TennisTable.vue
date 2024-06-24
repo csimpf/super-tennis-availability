@@ -3,6 +3,8 @@
 const API_URL =
   "https://play.tennis.com.au/v0/BookACourtVenue/WestEppingParkTennisCourts/GetVenueSessions";
 const DAY_OF_WEEK = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const BOOKING_URL =
+  "https://play.tennis.com.au/WestEppingParkTennisCourts/court-hire/book-by-date#";
 export default {
   name: "tennisTable",
   data() {
@@ -59,6 +61,9 @@ export default {
         query: { from: e.target.startDate.value, to: e.target.endDate.value },
       });
     },
+    generateBookingURL(date) {
+      return BOOKING_URL + "?date=" + date.slice(0, 10);
+    },
   },
 
   computed: {
@@ -82,39 +87,32 @@ export default {
       <input id="endDate" type="date" />
       <input type="submit" value="Submit" />
     </form>
-    <a
-      href="https://play.tennis.com.au/WestEppingParkTennisCourts/court-hire/book-by-date"
-      >Book by Date</a
-    >
-    -
-    <a
-      href="https://play.tennis.com.au/WestEppingParkTennisCourts/court-hire/book-by-court"
-      >Book by Court</a
-    >
     <div v-if="!msg">Loading...</div>
 
     <div class="courts" v-for="resource in resourcesArray" :key="resource.Name">
       <h2>{{ resource.Name }}</h2>
       <table v-for="day in resource.Days" :key="day.Date">
-        <tr>
-          <th>{{ displayDate(day.Date) }}</th>
-        </tr>
-        <tr v-for="sess in day.Sessions" :key="sess.ID + '' + sess.StartTime">
-          <td
-            :class="[
-              mapCategory(sess.Category),
-              sess.Recurrence && 'recurrence',
-            ]"
-            :style="{ height: ((sess.Interval * 2) / 60) * 17.5 - 1 + 'px' }"
-            :title="mapCategory(sess.Category)"
-          >
-            {{
-              Math.floor(sess.StartTime / 60) * 100 +
-              ((sess.StartTime / 60) % 1) * 60
-            }}
-            {{ sess.Interval / 60 }} h
-          </td>
-        </tr>
+        <a :href="generateBookingURL(day.Date)">
+          <tr>
+            <th>{{ displayDate(day.Date) }}</th>
+          </tr>
+          <tr v-for="sess in day.Sessions" :key="sess.ID + '' + sess.StartTime">
+            <td
+              :class="[
+                mapCategory(sess.Category),
+                sess.Recurrence && 'recurrence',
+              ]"
+              :style="{ height: ((sess.Interval * 2) / 60) * 17.5 - 1 + 'px' }"
+              :title="mapCategory(sess.Category)"
+            >
+              {{
+                Math.floor(sess.StartTime / 60) * 100 +
+                ((sess.StartTime / 60) % 1) * 60
+              }}
+              {{ sess.Interval / 60 }} h
+            </td>
+          </tr>
+        </a>
       </table>
     </div>
   </div>
@@ -125,6 +123,11 @@ export default {
   overflow: auto;
   white-space: nowrap;
   animation-duration: 2sec;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }
 
 table {
