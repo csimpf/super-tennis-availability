@@ -157,6 +157,13 @@ a {
   color: unset;
 }
 
+@media only screen and (max-width: 600px) {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 input {
   margin: 8px 8px;
   padding: 8px 8px;
