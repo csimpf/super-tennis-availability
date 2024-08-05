@@ -187,7 +187,7 @@ input {
   border-radius: 8px;
 }
 
-input[type="submit"]:not([disabled]) {
+input[type="submit"]:enabled {
   cursor: pointer;
 }
 
