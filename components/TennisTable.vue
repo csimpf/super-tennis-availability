@@ -169,6 +169,13 @@ a {
     display: flex;
     flex-direction: column;
   }
+
+  input[type="date"] {
+    /* Each device shows calendar differently... bit of a lost cause */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 input {
