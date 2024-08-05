@@ -187,6 +187,10 @@ input {
   border-radius: 8px;
 }
 
+input[type="submit"]:not([disabled]) {
+  cursor: pointer;
+}
+
 .all-courts {
   overflow-x: auto;
 }
