@@ -104,7 +104,7 @@ export default {
       <input id="startDate" type="date" />
       <label for="endDate"> End Date: </label>
       <input id="endDate" type="date" />
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Submit" :disabled="!isDirty" />
       <input type="submit" value="Reset" />
     </form>
     <div v-if="!msg">Loading...</div>
