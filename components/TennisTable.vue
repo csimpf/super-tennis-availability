@@ -175,6 +175,7 @@ a {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
 }
 
