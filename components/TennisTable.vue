@@ -108,38 +108,45 @@ export default {
       <input type="submit" value="Reset" />
     </form>
     <div v-if="!msg">Loading...</div>
-
-    <div class="courts" v-for="resource in resourcesArray" :key="resource.Name">
-      <h2>{{ resource.Name }}</h2>
-      <div class="booking-table">
-        <table v-for="day in resource.Days" :key="day.Date">
-          <a :href="generateBookingURL(day.Date)">
-            <tr>
-              <th>{{ displayDate(day.Date) }}</th>
-            </tr>
-            <tr
-              v-for="sess in day.Sessions"
-              :key="sess.ID + '' + sess.StartTime"
-            >
-              <td
-                :class="[
-                  mapCategory(sess.Category),
-                  sess.Recurrence && 'recurrence',
-                ]"
-                :style="{
-                  height: ((sess.Interval * 2) / 60) * 17.5 - 1 + 'px',
-                }"
-                :title="mapCategory(sess.Category)"
+    <div class="all-courts">
+      <div
+        class="court"
+        v-for="resource in resourcesArray"
+        :key="resource.Name"
+      >
+        <div class="court-heading-container">
+          <h2 class="court-heading">{{ resource.Name }}</h2>
+        </div>
+        <div class="booking-table">
+          <table v-for="day in resource.Days" :key="day.Date">
+            <a :href="generateBookingURL(day.Date)">
+              <tr>
+                <th>{{ displayDate(day.Date) }}</th>
+              </tr>
+              <tr
+                v-for="sess in day.Sessions"
+                :key="sess.ID + '' + sess.StartTime"
               >
-                {{
-                  Math.floor(sess.StartTime / 60) * 100 +
-                  ((sess.StartTime / 60) % 1) * 60
-                }}
-                {{ sess.Interval / 60 }} h
-              </td>
-            </tr>
-          </a>
-        </table>
+                <td
+                  :class="[
+                    mapCategory(sess.Category),
+                    sess.Recurrence && 'recurrence',
+                  ]"
+                  :style="{
+                    height: ((sess.Interval * 2) / 60) * 17.5 - 1 + 'px',
+                  }"
+                  :title="mapCategory(sess.Category)"
+                >
+                  {{
+                    Math.floor(sess.StartTime / 60) * 100 +
+                    ((sess.StartTime / 60) % 1) * 60
+                  }}
+                  {{ sess.Interval / 60 }} h
+                </td>
+              </tr>
+            </a>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -172,8 +179,22 @@ input {
   border-radius: 8px;
 }
 
-.booking-table {
+.all-courts {
   overflow-x: auto;
+}
+
+.court-heading-container {
+  position: absolute;
+  width: 100%;
+}
+
+.court-heading {
+  position: relative;
+  top: -2lh;
+}
+
+.court {
+  padding-top: 2lh;
 }
 
 table {
