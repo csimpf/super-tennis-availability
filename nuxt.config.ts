@@ -6,7 +6,10 @@ export default defineNuxtConfig({
   css: [`@/assets/css/main.css`],
   app: {
     header: {
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-    }
-  }
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "icons/favicon.ico" },
+        { rel: "manifest", href: "/manifest.json" },
+      ],
+    },
+  },
 });
