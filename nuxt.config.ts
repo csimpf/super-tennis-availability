@@ -48,7 +48,7 @@ export default defineNuxtConfig({
           type: "image/png",
         },
       ],
-      theme_color: "black",
+      theme_color: "#5d9caa",
       background_color: "#5d9caa",
     },
 
