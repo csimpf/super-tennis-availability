@@ -6,6 +6,7 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "nuxt3": "latest"
+    "@vite-pwa/nuxt": "^0.10.0",
+    "nuxt": "3.12.4"
   }
 }
