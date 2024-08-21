@@ -5,12 +5,9 @@ export default defineNuxtConfig({
   components: true,
   css: [`@/assets/css/main.css`],
   app: {
-    // head: {
-    //   link: [
-    //     //{ rel: "icon", type: "image/x-icon", href: "icons/favicon.ico" },
-    //     //{ rel: "manifest", href: "/manifest.json" },
-    //   ],
-    // },
+    head: {
+      link: [{ rel: "icon", type: "image/x-icon", href: "icons/favicon.ico" }],
+    },
   },
 
   modules: ["@vite-pwa/nuxt"],
