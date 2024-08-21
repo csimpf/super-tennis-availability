@@ -43,7 +43,7 @@ export default defineNuxtConfig({
           type: "image/png",
         },
         {
-          src: "icons/apple-touch-icon.png",
+          src: "icons/apple-touch-icon-new.png",
           sizes: "180x180",
           type: "image/png",
         },

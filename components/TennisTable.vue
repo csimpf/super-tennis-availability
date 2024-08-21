@@ -197,7 +197,8 @@ input[type="submit"]:enabled {
 
 .court-heading-container {
   position: absolute;
-  width: 100%;
+  left: 0;
+  right: 0;
 }
 
 .court-heading {
@@ -225,6 +226,7 @@ table td {
   background-color: #9d5252;
   user-select: none;
   vertical-align: middle;
+  transition: filter 0.5s ease;
 }
 
 td:hover {
