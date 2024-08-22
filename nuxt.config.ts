@@ -46,6 +46,7 @@ export default defineNuxtConfig({
           src: "icons/apple-touch-icon-new.png",
           sizes: "180x180",
           type: "image/png",
+          purpose: "maskable",
         },
       ],
       theme_color: "#5d9caa",
