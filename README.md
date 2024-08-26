@@ -1,34 +1,23 @@
-# Nuxt.js Example
+# super-tennis-availability 🎾
 
-Deploy your [Nuxt.js](https://nuxtjs.org) project to Vercel with zero configuration.
+An app to more easily find out when the tennis courts are free!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/nuxtjs&template=nuxtjs)
+Built with Vue / Nuxt, and deployed to Vercel. It's also a PWA ✨
 
-_Live Example: https://nuxtjs-template.vercel.app_
-
-## Setup
-
-Install the dependencies:
+Set up:
 
 ```bash
-yarn install
+yarn
 ```
 
-## Development
-
-Start the development server on http://localhost:3000:
+Run and develop on localhost:
 
 ```bash
 yarn dev
 ```
 
-## Deploy Your Own
-
-Build the application for production:
+Build:
 
 ```bash
 yarn build
 ```
-
-
-
