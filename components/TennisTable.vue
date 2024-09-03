@@ -1,7 +1,5 @@
-<script>
+<script lang="js">
 //   "https://west-epping-tennis.herokuapp.com/index.php";
-const API_URL =
-  "https://play.tennis.com.au/v0/BookACourtVenue/WestEppingParkTennisCourts/GetVenueSessions";
 const DAY_OF_WEEK = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const BOOKING_URL =
   "https://play.tennis.com.au/WestEppingParkTennisCourts/court-hire/book-by-date#";
@@ -53,14 +51,14 @@ export default {
       this.getData(today.toJSON().slice(0, 10), nextWeek.toJSON().slice(0, 10));
     },
     getData(startDate, endDate) {
-      fetch(API_URL + "?startDate=" + startDate + "&endDate=" + endDate)
+      fetch("/api/getResults" + "?startDate=" + startDate + "&endDate=" + endDate)
         .then((rsp) =>
           rsp.json().then((json) => {
             this.msg = json;
             this.isDirty = false;
           })
         )
-        .catch((e) => window.alert(e));
+        .catch((e) => console.error(e));
     },
     onSubmit(e) {
       e.preventDefault();
